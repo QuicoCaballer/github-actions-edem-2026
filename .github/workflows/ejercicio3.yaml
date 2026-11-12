@@ -1,21 +1,32 @@
+name: Say Hello
+
 on:
   workflow_dispatch:
 
 env:
   VARIABLE_ENV: "mi-aplicacion"
-strategy:
-  matrix:
-    os: [python3.11, python3.12]
 
 jobs:
   say_hello:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
     steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: Say Hello
-        run: echo "primer job `:` ${{ env.VARIABLE_ENV }}"
+        run: echo "primer job: ${{ env.VARIABLE_ENV }} (Python ${{ matrix.python-version }})"
 
   say_hello2:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
     steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: Say Hello
-        run: echo "segundo job `:` ${{ env.VARIABLE_ENV }}"
+        run: echo "segundo job: ${{ env.VARIABLE_ENV }} (Python ${{ matrix.python-version }})"
