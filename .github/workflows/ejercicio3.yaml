@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+
+env:
+  VARIABLE_ENV: "mi-aplicacion"
+strategy:
+  matrix:
+    os: [python3.11, python3.12]
+
+jobs:
+  say_hello:
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Say Hello
+        run: echo "primer job `:` ${{ env.VARIABLE_ENV }}"
+
+  say_hello2:
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Say Hello
+        run: echo "segundo job `:` ${{ env.VARIABLE_ENV }}"
