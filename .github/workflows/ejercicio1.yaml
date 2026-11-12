@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo "primer job ${{ env.VARIABLE_ENV }}"
+        run: echo "primer job `:` ${{ env.VARIABLE_ENV }}"
 
   say_hello2:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo "segundo job ${{ env.VARIABLE_ENV }}"
+        run: echo "segundo job `:` ${{ env.VARIABLE_ENV }}"
