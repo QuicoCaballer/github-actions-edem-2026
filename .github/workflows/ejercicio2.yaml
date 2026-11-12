@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+
+env:
+  VARIABLE_ENV: "mi-aplicacion"
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo "primer job `:` ${{ env.VARIABLE_ENV }}"
+
+  say_hello2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo "segundo job `:` ${{ secrets.contrasenya }}"
