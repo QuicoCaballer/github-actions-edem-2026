@@ -2,7 +2,7 @@ name: Outputs example
 on:
   workflow_dispatch:
 jobs:
-outputs_example:
+  say_hello:
     name: "Let's greet the user!"
     runs-on: ubuntu-latest
     steps:
